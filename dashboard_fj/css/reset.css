@@ -1,0 +1,73 @@
+/*清楚浏览器默认样式*/
+body {
+    font-size: 12px;
+    line-height: 1.666;
+    color: #2b2b2b;
+}
+
+body, input {
+    font-family: "微软雅黑";
+}
+
+body, h1, h2, h3, h4, h5, h6, ul, ol, li, p, dl, dt, dd, table, th, td,s{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+table, th, td, img {
+    border: 0
+}
+
+em, i, th,s{
+    font-style: normal;
+    text-decoration: none
+}
+
+h1, h2, h3, h4, h5, h6, th {
+    font-size: 100%;
+    font-weight: normal
+}
+
+input, select, button, textarea, table {
+    margin: 0;
+    font-family: inherit;
+    font-size: 100%
+}
+
+input {
+    outline: none;
+}
+
+button{
+    background: none;
+    border: none;
+}
+
+ul, ol {
+    list-style: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+th, caption {
+    text-align: left ;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+.f-clear:before,.f-clear:after{
+    content: '';
+    display: block;
+    clear: both;
+    overflow: hidden;
+    font-size: 0;
+    height:0;
+    line-height:0;
+}
+

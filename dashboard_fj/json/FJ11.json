@@ -1,0 +1,42 @@
+{
+  "data": [
+    {
+      "valueSet": [
+        {
+          "name": "2015",
+          "value": 173
+        },
+        {
+          "name": "2016",
+          "value": 58
+        },
+        {
+          "name": "2017",
+          "value": 0
+        }
+      ],
+      "topic": "福建省地方税务局"
+    },
+    {
+      "valueSet": [
+        {
+          "name": "2015",
+          "value": 0
+        },
+        {
+          "name": "2016",
+          "value": 0
+        },
+        {
+          "name": "2017",
+          "value": 224
+        }
+      ],
+      "topic": "福建省经济和信息化委员会"
+    }
+  ],
+  "state": "",
+  "title": "小微企业享受扶持量",
+  "desc": "hh",
+  "errorMsg": ""
+}

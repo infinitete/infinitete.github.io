@@ -1,0 +1,25 @@
+{
+  "data": [
+    {
+      "valueSet": [
+        {
+          "name": "好评",
+          "value": 48870
+        },
+        {
+          "name": "中评",
+          "value": 7903
+        },
+        {
+          "name": "差评",
+          "value": 451
+        }
+      ],
+      "topic": ""
+    }
+  ],
+  "state": "",
+  "title": "企业信用评价占比",
+  "desc": "",
+  "errorMsg": ""
+}

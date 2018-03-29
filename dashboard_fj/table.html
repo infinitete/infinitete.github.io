@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>关键字搜索云</title>
+    <!-- <script src='./plugins/jquery.min.js'></script> -->
+    <script src='./plugins/vue.js'></script>
+    <script src='./plugins/axios.min.js'></script>
+    <script src='./plugins/layui/dist/layui.js'></script>
+    <link rel="stylesheet" href="./plugins/layui/dist/css/layui.css">
+    <link rel="stylesheet" href="./css/keywords.css">
+
+</head>
+
+<body>
+
+    <section id='keyWordsSearch'>
+        <div class="flex justify-center flex-column" v-show="!showTable">
+            <!-- <div class="flex justify-center flex-column loading-container"> -->
+            <img src="./img/loading.svg" alt="">
+            <div class="loading">加载中...</div>
+        </div>
+        <div class="container" v-show="showTable">
+            <h1>企业诚信信息列表</h1>
+            <!-- 查询条件 start -->
+            <div class="form-box">
+                <div class="flex margin-bottom_50">
+                    <div class="flex_1 flex align-center">
+                        <label for="">企业名称 :</label>
+                        <div class="flex_1 flex align-center">
+                            <input v-model="formData.name" class="flex_1 search-input" type="text" />
+                        </div>
+                    </div>
+
+                    <div class="flex_1 flex  align-center layui-form center-item">
+                        <label for="">数据分类 :</label>
+                        <select lay-filter="integrityLevel" v-model="formData.integrityLevel" id="integrityLevel" name="" class="flex_1 search-input">
+                            <option value=""></option>
+                            <!--<option value="0">行政处罚信息</option>-->
+                            <!--<option value="1">行政许可信息</option>-->
+                            <option value="0">年检（审）信息（或定期检验）</option>
+                            <option value="1">荣誉、表彰信息</option>
+                            <option value="2">抽查检查信息</option>
+                            <option value="3">小微企业享受扶持政策信息</option>
+                            <option value="4">守信“红名单”信息</option>
+                            <option value="5">信用评价信息</option>
+                            <option value="6">联合惩戒信息</option>
+                            <option value="7">行政处罚信息</option>
+                            <option value="8">行政许可信息</option>
+                            <option value="9">登记、备案类信息</option>
+                            <option value="10">失信“黑名单”信息</option>
+                            <option value="11">行政许可变更信息</option>
+                        </select>
+                    </div>
+                    <div class="flex_2 flex align-center">
+                        <label for="">日期:</label>
+                        <input v-model="formData.fillDate" value="" id="fillDate" class="flex_1 age-inp search-input" type="text" />
+                        <span> &nbsp;&nbsp;至&nbsp;</span>
+                        <input v-model="formData.fillDateEnd" id="fillDateEnd" class="search-input age-inp flex_1" type="text" />
+
+                    </div>
+                    <div class="flex_1 flex align-center">
+                        <div class="flex_1"></div>
+                        <div @click="searchBtn" class="btn">查找</div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- 查询条件 end -->
+
+            <!-- table container start -->
+
+            <div class="table-container">
+
+
+                <div class="scroll-box">
+                    <!-- 固定的table 头 start -->
+                    <table class="info-table fixed-table">
+                        <thead>
+                            <tr>
+                                <td v-for="category in categoryList" key='category'>{{categoryMapping[category]}}</td>
+                            </tr>
+
+                        </thead>
+
+                    </table>
+                    <!-- 固定的table 头 start -->
+
+                    <!-- 显示符合搜索条件的list start -->
+                    <div class="scroll-table">
+                        <table class="info-table">
+                            <tbody>
+                                <tr v-for="(item,index) in list" key="info">
+                                    <td v-for="category in categoryList" key='itemcategory'>{{item[category]}}</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- 显示符合搜索条件的list end -->
+
+                </div>
+            </div>
+            <!-- table container end -->
+
+            <div class="opera-container flex align-center">
+                <!--<div class="btn">-->
+                    <!--导出EXCEL-->
+                <!--</div>-->
+                <div class="flex_1"></div>
+                <div class="control flex align-center">
+                    <div class="flex_1">
+                        <span>共:{{totalItems}}条 &nbsp;&nbsp; {{totalPage}}页 &nbsp;&nbsp;</span>
+                        <span>当前是第：{{curPage}}页 &nbsp;&nbsp;</span>
+                    </div>
+                    <div>
+                        <span>跳至</span>
+                        <input @keyup.enter="topageEvent" class="to-page" v-model="toPage" type="text" name="" id="">页
+                    </div>
+                    <div @click="previousPage" class="btn previous" :class="curPage==0?'disable-btn':''">上一页</div>
+                    <div @click="nextPage" class="btn next" :class="curPage>=totalPage?'disable-btn':''">下一页</div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <script src="plugins/jquery.min.js"></script>
+    <script src="./js/layInstance.js"></script>
+    <script src="./js/vueInstance.js"></script>
+
+</body>
+
+</html>

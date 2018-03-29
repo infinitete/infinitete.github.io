@@ -1,0 +1,25 @@
+{
+  "data": [
+    {
+      "valueSet": [
+        {
+          "name": "地市级",
+          "value": 3918
+        },
+        {
+          "name": "省部级",
+          "value": 1589
+        },
+        {
+          "name": "国家级",
+          "value": 300
+        }
+      ],
+      "topic": ""
+    }
+  ],
+  "state": "",
+  "title": "获各级别表彰企业",
+  "desc": "",
+  "errorMsg": ""
+}
