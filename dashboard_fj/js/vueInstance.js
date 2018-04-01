@@ -161,8 +161,9 @@ const keyWordsSearch = new Vue({
         //     vm.showTable = true
         // })
         $.getJSON('./json/FJ14.json',function (res) {
-            vm.listTotal = res.data
-            vm.meetList = vm.addId(res.data)
+            vm.listTotal = [res.data[0]]
+
+            vm.meetList = vm.addId([res.data[0]])
             vm.showTable = true
         })
     },
